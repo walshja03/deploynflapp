@@ -61,6 +61,7 @@ function findinfo() {
             for (i=0;i<size;i++){
                 var row = d3.select("tbody").append("tr");
                 row.append("td").text(data["Rank"][i]);
+                row.append("td").text(data["WRPickOrder"][i]);
                 row.append("td").text(data["Player_x"][i]);
                 row.append("td").text(data["projected points"][i]);
                 // console.log(i)

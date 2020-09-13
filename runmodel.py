@@ -20,8 +20,8 @@ def run_model(chosenstats):
     predict2020 = pd.read_csv("static/data/draft2020.csv")
     # create a df of the subjects matched by ID
     subjects = model_df[['ID', 'Player_x', 'FirstNm', 'LastNm']]
-    subjects2020 = predict2020[['ID', 'Player_x', 'FirstNm', 'LastNm']]
-
+    subjects2020 = predict2020[['ID', 'WRPickOrder','Player_x', 'FirstNm', 'LastNm']]
+    print(subjects2020)
     # Convert Age, weight, and height columns to floats
     model_df[['Wt', 'height']] = model_df[['Wt', 'height']].astype(float)
 
@@ -65,7 +65,7 @@ def run_model(chosenstats):
 
     # Create df of players that I want to predict who were drafted in 2020
     pre2020draft = model_df[model_df['year'] == 2020]
-
+    pre2020draft
     # drop irrelevant columns of ID and year that I kept til now to verify I would know the subjects and be able to separate
     # out for year after creating dummy variable.  Technically if I wanted to keep year I should make it categorical
     model_df.drop(columns=['year', 'ID'], inplace=True)
@@ -124,23 +124,27 @@ def run_model(chosenstats):
 
     #add projected points to the subjects
     subjects2020['projected points'] = projected
+    subjects2020['projected points']=subjects2020['projected points'].astype(int)
 
     #Sort by projected points
     subjects2020.sort_values('projected points', ascending=False, inplace=True)
 
     #drop unecessary columns
     subjects2020.drop(columns=['FirstNm', 'LastNm', 'ID'], inplace=True)
-
+    print("after drop")
+    print(subjects2020)
     #reset the index
-    subjects2020.reset_index(inplace=True)
-
+    subjects2020.reset_index(inplace=True, drop =True)
+    subjects2020.reset_index(inplace = True)
+    print("reset index")
+    print(subjects2020)
     # Add rank column 
     subjects2020['Rank'] = subjects2020['index']+1
-
+    print(subjects2020)
     # reformat data for web display
-    web_display = subjects2020[['Rank', 'Player_x', 'projected points']]
+    web_display = subjects2020[['Rank', 'WRPickOrder','Player_x', 'projected points']]
 
-    web_display
+    print(web_display)
     # #get data in a format to write to a file that can be read by webpage
     data = web_display.to_dict('records')
 
