@@ -15,17 +15,21 @@ tableData.forEach(function (playerrating) {
 })
 
 //List of attributes that a model can be run by
-var optdata = ['ExcludeZeroFPTS','pickNum','Conf','Class','Age', 'Wt', 'Forty', 'Vertical', 'BenchReps', 'BroadJump', 'ThreeCone', 'Shuttle',
+var optdata = ['ExcludeZeroFPTS','pickNum','Conf','Class','Age', 
+'Wt', 'Forty', 'Vertical', 'BenchReps', 'BroadJump', 'ThreeCone', 'Shuttle',
 'careerRec', 'careerRecYds', 'careerYPC', 'careerRecTds',
-'careerRushAtt', 'careerRushYds', 'careerYPA', 'careerRushTds',
-'careerPlays', 'careerTotalYds', 'careerYPT', 'careerTotalTds',
-'dr_1games', 'dr_1Rec', 'dr_1RecYds',
-'dr_1YPC', 'dr_1RecTds', 'dr_1RushAtt', 'dr_1RushYds', 'dr_1YPA',
-'dr_1RushTds', 'dr_1Plays', 'dr_1TotalYds', 'dr_1YPT', 'dr_1TotalTds',
-'dr_2games', 'dr_2Rec', 'dr_2RecYds', 'dr_2YPC', 'dr_2RecTds',
-'dr_2RushAtt', 'dr_2RushYds', 'dr_2YPA', 'dr_2RushTds', 'dr_2Plays',
+'careerTotalYds', 'careerTotalTds','dr_1Rec', 'dr_1RecYds',
+'dr_1YPC', 'dr_1RecTds', 'dr_1TotalYds',  'dr_1TotalTds',
+ 'dr_2Rec', 'dr_2RecYds', 'dr_2YPC', 'dr_2RecTds',
 'dr_2TotalYds', 'dr_2YPT', 'dr_2TotalTds']
 
+var labels = ['Exclude Busts','Draft Pick Number','Conference','Class (ie: Junior)','Age',
+'Weight', '40 Yd Dash', 'Vertical', 'Bench Reps', 'Broad Jump', 'Three Cone Drill', 'Shuttle Run',
+'Career Receptions', 'Career Rec Yds', 'Career YPC', 'Career Rec TDs',
+'Career Total Yds', 'Career Total TDs','Final Season Receptions', 'Final Season Rec Yds',
+'Final Season YPC', 'Final Season Reception TDs', 'Final Season Total Yds', 'Final Season Total TDs',
+'Penultimate Season Receptions', 'Penultimate Season Rec Yds', 'Penultimate Season YPC', 'Penultimate Season Rec TDs',
+'Penultimate Season Total Yds', 'Penultimate Season YPT', 'Penultimate Season Total TDs']
 //append a list of option to the create a model page on initial load
 var list = d3.select(".panel-body").append("dl");
 list.selectAll("input")
@@ -33,7 +37,7 @@ list.selectAll("input")
     .enter()
     .append('dt')
         .attr('value', function (d, i) { return d; })
-        .text(function (d) { return `${d}  `; })
+        .text(function (d,i) { return `${labels[i]}  `; })
     .append("input")
         .property("checked", false)
         .attr("type", "checkbox")
