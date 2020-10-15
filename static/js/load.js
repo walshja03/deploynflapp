@@ -24,10 +24,7 @@ var optdata = ['ExcludeZeroFPTS','pickNum','Conf','Class','Age', 'Wt', 'Forty', 
 'dr_1RushTds', 'dr_1Plays', 'dr_1TotalYds', 'dr_1YPT', 'dr_1TotalTds',
 'dr_2games', 'dr_2Rec', 'dr_2RecYds', 'dr_2YPC', 'dr_2RecTds',
 'dr_2RushAtt', 'dr_2RushYds', 'dr_2YPA', 'dr_2RushTds', 'dr_2Plays',
-'dr_2TotalYds', 'dr_2YPT', 'dr_2TotalTds', 'dr_3games', 'dr_3Rec',
-'dr_3RecYds', 'dr_3YPC', 'dr_3RecTds', 'dr_3RushAtt', 'dr_3RushYds',
-'dr_3YPA', 'dr_3RushTds', 'dr_3Plays', 'dr_3TotalYds', 'dr_3YPT',
-'dr_3TotalTds']
+'dr_2TotalYds', 'dr_2YPT', 'dr_2TotalTds']
 
 //append a list of option to the create a model page on initial load
 var list = d3.select(".panel-body").append("dl");

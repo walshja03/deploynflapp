@@ -3,7 +3,7 @@ from runmodel import run_model
 
 
 
-app = Flask(__name__)
+application = app = Flask(__name__)
 
 
 
